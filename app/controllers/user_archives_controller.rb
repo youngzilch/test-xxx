@@ -1,0 +1,106 @@
+class UserArchivesController < ApplicationController
+  # GET /user_archives
+  # GET /user_archives.xml
+  def index
+    @user_archives = UserArchive.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @user_archives }
+    end
+  end
+
+  def archive
+    #@user_archives = UserArchive.all
+    puts params[:sql]
+    times=UserArchive.maximum("archive_time")
+    times = times.nil? ? 1 : times+1
+    count=0
+    unless params[:sql].nil? or params[:sql].empty?
+    	arr=Usr.find_by_sql(params[:sql])
+    	count=arr.count
+    	arr.each {|u|
+    	UserArchive.archiveUser(u,times)
+    	
+    }
+    end
+
+
+    respond_to do |format|
+    	#format.html # index.html.erb
+      format.html { redirect_to("/user_archives", :notice => count.to_s + ' records archived.') }
+      format.xml  { render :xml => @user_archives }
+    end
+  end
+
+  # GET /user_archives/1
+  # GET /user_archives/1.xml
+  def show
+    @user_archive = UserArchive.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user_archive }
+    end
+  end
+
+  # GET /user_archives/new
+  # GET /user_archives/new.xml
+  def new
+    @user_archive = UserArchive.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @user_archive }
+    end
+  end
+
+  # GET /user_archives/1/edit
+  def edit
+    @user_archive = UserArchive.find(params[:id])
+  end
+
+  # POST /user_archives
+  # POST /user_archives.xml
+  def create
+    @user_archive = UserArchive.new(params[:user_archive])
+
+    respond_to do |format|
+      if @user_archive.save
+        format.html { redirect_to(@user_archive, :notice => 'UserArchive was successfully created.') }
+        format.xml  { render :xml => @user_archive, :status => :created, :location => @user_archive }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @user_archive.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /user_archives/1
+  # PUT /user_archives/1.xml
+  def update
+    @user_archive = UserArchive.find(params[:id])
+
+    respond_to do |format|
+      if @user_archive.update_attributes(params[:user_archive])
+        format.html { redirect_to(@user_archive, :notice => 'UserArchive was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user_archive.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /user_archives/1
+  # DELETE /user_archives/1.xml
+  def destroy
+    @user_archive = UserArchive.find(params[:id])
+    @user_archive.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(user_archives_url) }
+      format.xml  { head :ok }
+    end
+  end
+end

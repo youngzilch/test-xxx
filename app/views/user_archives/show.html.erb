@@ -1,0 +1,38 @@
+<p>
+  <b>Usr:</b>
+  <%=h @user_archive.usr_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @user_archive.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user_archive.email %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @user_archive.state %>
+</p>
+
+<p>
+  <b>Usr created at:</b>
+  <%=h @user_archive.usr_created %>
+</p>
+
+<p>
+  <b>Usr updated at:</b>
+  <%=h @user_archive.usr_updated %>
+</p>
+
+<p>
+  <b>Archive time:</b>
+  <%=h @user_archive.archive_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_archive_path(@user_archive) %> |
+<%= link_to 'Back', user_archives_path %>

@@ -1,0 +1,2387 @@
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-12-22 18:55:39) [GET]
+  [4;36;1mSQL (31.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 94ms (View: 0, DB: 31) | 200 OK [http://localhost/rails/info/properties]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (46.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (93.8ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsrs (20101222110339)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "usrs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "state" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101222110339')[0m
+Migrating to CreateUserArchives (20101222110819)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "user_archives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "usr_id" integer, "name" varchar(255), "email" varchar(255), "state" text, "created_at" datetime, "updated_at" datetime, "archive_time" integer) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101222110819')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("user_archives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("usrs")[0m
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-22 19:09:01) [GET]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 266ms (View: 250, DB: 0) | 200 OK [http://localhost/usrs]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:09:10) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#new (for 127.0.0.1 at 2010-12-22 19:09:14) [GET]
+Rendering template within layouts/user_archives
+Rendering user_archives/new
+
+ActionView::TemplateError (undefined method `usr_created_at' for #<UserArchive:0x485c268>) on line #24 of app/views/user_archives/new.html.erb:
+21:   </p>
+22:   <p>
+23:     <%= f.label :usr_created_at %><br />
+24:     <%= f.text_field :usr_created_at %>
+25:   </p>
+26:   <p>
+27:     <%= f.label :usr_updated_at %><br />
+
+    app/views/user_archives/new.html.erb:24
+    app/views/user_archives/new.html.erb:3
+    app/controllers/user_archives_controller.rb:29:in `new'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#new (for 127.0.0.1 at 2010-12-22 19:12:38) [GET]
+Rendering template within layouts/user_archives
+Rendering user_archives/new
+
+ActionView::TemplateError (undefined method `usr_created_at' for #<UserArchive:0x4678170>) on line #24 of app/views/user_archives/new.html.erb:
+21:   </p>
+22:   <p>
+23:     <%= f.label :usr_created_at %><br />
+24:     <%= f.datetime_select :usr_created_at %>
+25:   </p>
+26:   <p>
+27:     <%= f.label :usr_updated_at %><br />
+
+    app/views/user_archives/new.html.erb:24
+    app/views/user_archives/new.html.erb:3
+    app/controllers/user_archives_controller.rb:29:in `new'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-22 19:12:58) [GET]
+  [4;36;1mUsr Load (15.6ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/usrs]
+
+
+Processing UsrsController#new (for 127.0.0.1 at 2010-12-22 19:12:59) [GET]
+Rendering template within layouts/usrs
+Rendering usrs/new
+Completed in 125ms (View: 94, DB: 0) | 200 OK [http://localhost/usrs/new]
+
+
+Processing UsrsController#create (for 127.0.0.1 at 2010-12-22 19:13:10) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"XXa9H2RvHebslqCdHCHjsWrpYdlLApvpbw6LzYA8y/Y=", "usr"=>{"name"=>"1name", "state"=>"1state", "email"=>"1mail"}}
+  [4;35;1mUsr Create (15.6ms)[0m   [0mINSERT INTO "usrs" ("name", "created_at", "updated_at", "email", "state") VALUES('1name', '2010-12-22 11:13:10', '2010-12-22 11:13:10', '1mail', '1state')[0m
+Redirected to http://localhost:3000/usrs/1
+Completed in 188ms (DB: 16) | 302 Found [http://localhost/usrs]
+
+
+Processing UsrsController#show (for 127.0.0.1 at 2010-12-22 19:13:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUsr Load (15.6ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+Rendering template within layouts/usrs
+Rendering usrs/show
+Completed in 141ms (View: 109, DB: 16) | 200 OK [http://localhost/usrs/1]
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-22 19:13:14) [GET]
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 156ms (View: 16, DB: 0) | 200 OK [http://localhost/usrs]
+
+
+Processing UsrsController#new (for 127.0.0.1 at 2010-12-22 19:13:15) [GET]
+Rendering template within layouts/usrs
+Rendering usrs/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/usrs/new]
+
+
+Processing UsrsController#create (for 127.0.0.1 at 2010-12-22 19:13:24) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"XXa9H2RvHebslqCdHCHjsWrpYdlLApvpbw6LzYA8y/Y=", "usr"=>{"name"=>"2name", "state"=>"2state", "email"=>"2mail"}}
+  [4;36;1mUsr Create (0.0ms)[0m   [0;1mINSERT INTO "usrs" ("name", "created_at", "updated_at", "email", "state") VALUES('2name', '2010-12-22 11:13:24', '2010-12-22 11:13:24', '2mail', '2state')[0m
+Redirected to http://localhost:3000/usrs/2
+Completed in 125ms (DB: 0) | 302 Found [http://localhost/usrs]
+
+
+Processing UsrsController#show (for 127.0.0.1 at 2010-12-22 19:13:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" WHERE ("usrs"."id" = 2) [0m
+Rendering template within layouts/usrs
+Rendering usrs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/usrs/2]
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-22 19:13:26) [GET]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/usrs]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:13:31) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#new (for 127.0.0.1 at 2010-12-22 19:13:33) [GET]
+Rendering template within layouts/user_archives
+Rendering user_archives/new
+
+ActionView::TemplateError (undefined method `usr_created_at' for #<UserArchive:0x4769748>) on line #24 of app/views/user_archives/new.html.erb:
+21:   </p>
+22:   <p>
+23:     <%= f.label :usr_created_at %><br />
+24:     <%= f.datetime_select :usr_created_at %>
+25:   </p>
+26:   <p>
+27:     <%= f.label :usr_updated_at %><br />
+
+    app/views/user_archives/new.html.erb:24
+    app/views/user_archives/new.html.erb:3
+    app/controllers/user_archives_controller.rb:29:in `new'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (125.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUserArchives (20101222110819)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mDROP TABLE "user_archives"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20101222110819'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("usrs")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsrs (20101222110339)
+Migrating to CreateUserArchives (20101222110819)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "user_archives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "usr_id" integer, "name" varchar(255), "email" varchar(255), "state" text, "usr_created" datetime, "usr_updated" datetime, "archive_time" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101222110819')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("user_archives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("usrs")[0m
+
+
+Processing UserArchivesController#new (for 127.0.0.1 at 2010-12-22 19:18:07) [GET]
+Rendering template within layouts/user_archives
+Rendering user_archives/new
+
+ActionView::TemplateError (undefined method `usr_created_at' for #<UserArchive:0x492f8b8>) on line #24 of app/views/user_archives/new.html.erb:
+21:   </p>
+22:   <p>
+23:     <%= f.label :usr_created_at %><br />
+24:     <%= f.datetime_select :usr_created_at %>
+25:   </p>
+26:   <p>
+27:     <%= f.label :usr_updated_at %><br />
+
+    app/views/user_archives/new.html.erb:24
+    app/views/user_archives/new.html.erb:3
+    app/controllers/user_archives_controller.rb:29:in `new'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#new (for 127.0.0.1 at 2010-12-22 19:19:29) [GET]
+Rendering template within layouts/user_archives
+Rendering user_archives/new
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/user_archives/new]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:20:58) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:30:55) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:39:56) [GET]
+  [4;36;1mUserArchive Load (203.1ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (5296.9ms)
+Rendered rescues/_request_and_response (31.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:40:21) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:41:10) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (218.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:41:16) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:42:00) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (187.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:43:24) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(nil) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:43:48) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (undefined method `fixnum_path' for #<ActionView::Base:0x46f6e60>) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(1) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (187.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:44:37) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archives) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:45:17) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archives) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-22 19:45:35) [GET]
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 172ms (View: 156, DB: 0) | 200 OK [http://localhost/usrs]
+
+
+Processing UsrsController#show (for 127.0.0.1 at 2010-12-22 19:45:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+Rendering template within layouts/usrs
+Rendering usrs/show
+Completed in 125ms (View: 109, DB: 0) | 200 OK [http://localhost/usrs/1]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:46:28) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (203.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsrsController#show (for 127.0.0.1 at 2010-12-22 19:46:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+Rendering template within layouts/usrs
+Rendering usrs/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/usrs/1]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:47:11) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(@user_archive) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-22 19:49:56) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (undefined local variable or method `xxx' for #<ActionView::Base:0x4693ec0>) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_for(xxx) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:10:59) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 297ms (View: 297, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#create (for 127.0.0.1 at 2010-12-23 10:11:09) [POST]
+  Parameters: {"commit"=>"Update", "sql"=>""}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.2ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:22:04) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#create (for 127.0.0.1 at 2010-12-23 10:22:06) [POST]
+  Parameters: {"commit"=>"Update", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mUserArchive Create (0.0ms)[0m   [0;1mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES(NULL, '2010-12-23 02:22:06', NULL, '2010-12-23 02:22:06', NULL, NULL, NULL, NULL, NULL)[0m
+Redirected to http://localhost:3000/user_archives/1
+Completed in 172ms (DB: 0) | 302 Found [http://localhost/user_archives]
+
+
+Processing UserArchivesController#show (for 127.0.0.1 at 2010-12-23 10:22:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/show
+
+ActionView::TemplateError (undefined method `usr_created_at' for #<UserArchive:0x470fa18>) on line #23 of app/views/user_archives/show.html.erb:
+20: 
+21: <p>
+22:   <b>Usr created at:</b>
+23:   <%=h @user_archive.usr_created_at %>
+24: </p>
+25: 
+26: <p>
+
+    app/views/user_archives/show.html.erb:23
+    app/controllers/user_archives_controller.rb:18:in `show'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (171.9ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:22:39) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#create (for 127.0.0.1 at 2010-12-23 10:22:41) [POST]
+  Parameters: {"commit"=>"Update", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mUserArchive Create (0.0ms)[0m   [0mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES(NULL, '2010-12-23 02:22:41', NULL, '2010-12-23 02:22:41', NULL, NULL, NULL, NULL, NULL)[0m
+Redirected to http://localhost:3000/user_archives/2
+Completed in 172ms (DB: 0) | 302 Found [http://localhost/user_archives]
+
+
+Processing UserArchivesController#show (for 127.0.0.1 at 2010-12-23 10:22:41) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 2) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/show
+
+ActionView::TemplateError (undefined method `usr_created_at' for #<UserArchive:0x47bcfe0>) on line #23 of app/views/user_archives/show.html.erb:
+20: 
+21: <p>
+22:   <b>Usr created at:</b>
+23:   <%=h @user_archive.usr_created_at %>
+24: </p>
+25: 
+26: <p>
+
+    app/views/user_archives/show.html.erb:23
+    app/controllers/user_archives_controller.rb:18:in `show'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:23:49) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 188ms (View: 141, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#create (for 127.0.0.1 at 2010-12-23 10:23:51) [POST]
+  Parameters: {"commit"=>"Update", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mUserArchive Create (0.0ms)[0m   [0;1mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES(NULL, '2010-12-23 02:23:51', NULL, '2010-12-23 02:23:51', NULL, NULL, NULL, NULL, NULL)[0m
+Redirected to http://localhost:3000/user_archives/3
+Completed in 188ms (DB: 0) | 302 Found [http://localhost/user_archives]
+
+
+Processing UserArchivesController#show (for 127.0.0.1 at 2010-12-23 10:23:51) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 3) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives/3]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:23:56) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#show (for 127.0.0.1 at 2010-12-23 10:32:17) [GET]
+  Parameters: {"id"=>"index"}
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find UserArchive with ID=index):
+  app/controllers/user_archives_controller.rb:16:in `show'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:32:29) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:42:55) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (undefined local variable or method `search_path' for #<ActionView::Base:0x466a898>) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_tag(search_path, :method => "get") do %>
+4:     <%= label_tag(:q, "SQL:") %>
+5:     <%= text_field_tag(:q) %>
+6:     <%= submit_tag("Run") %>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (187.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:54:54) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+
+ActionView::TemplateError (undefined local variable or method `search_path' for #<ActionView::Base:0x483aab8>) on line #3 of app/views/user_archives/index.html.erb:
+1: <h1>Listing user_archives</h1>
+2: 
+3: <% form_tag(search_path, :method => "post") do %>
+4:     <%= label_tag(:q, "SQL:") %>
+5:     <%= text_field_tag(:q) %>
+6:     <%= submit_tag("Run") %>
+
+    app/views/user_archives/index.html.erb:3
+    app/controllers/user_archives_controller.rb:7:in `index'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:57:27) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 328ms (View: 281, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 10:57:37) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+
+ActionController::RoutingError (No route matches "/search_path" with {:method=>:post}):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 10:57:43) [GET]
+  [4;36;1mUserArchive Load (15.6ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 11:01:46) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 11:02:37) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 11:02:48) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 11:03:11) [GET]
+  [4;36;1mUserArchive Load (15.6ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 234ms (View: 203, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 11:03:24) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 109ms (View: 94, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 11:03:30) [GET]
+  [4;36;1mUserArchive Load (15.6ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 297ms (View: 266, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 13:44:12) [GET]
+
+ActionController::RoutingError (No route matches "/search_path" with {:method=>:get}):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:44:56) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 13:44:58) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+
+ActionController::RoutingError (No route matches "/archive" with {:method=>:post}):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:50:17) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:50:19) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 13:50:21) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+
+ActionController::RoutingError (No route matches "/archive" with {:method=>:post}):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:50:38) [GET]
+  [4;36;1mUserArchive Load (15.6ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 156ms (View: 125, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:50:39) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 13:50:41) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+
+ActionView::MissingTemplate (Missing template user_archives/archive.erb in view path app/views):
+  app/controllers/user_archives_controller.rb:17:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:53:07) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:53:08) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 13:53:09) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+
+ActionView::MissingTemplate (Missing template user_archives/archive.erb in view path app/views):
+  app/controllers/user_archives_controller.rb:7:in `index'
+  app/controllers/user_archives_controller.rb:18:in `archive'
+  app/controllers/user_archives_controller.rb:17:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:55:08) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:55:09) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 13:55:10) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  app/controllers/user_archives_controller.rb:18:in `archive'
+  app/controllers/user_archives_controller.rb:17:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (187.5ms)
+Rendered rescues/_request_and_response (15.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:57:02) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:57:04) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 13:57:12) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+
+ActionView::MissingTemplate (Missing template user_archives/archive.erb in view path app/views):
+  app/controllers/user_archives_controller.rb:17:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:58:51) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:58:52) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 13:58:56) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 13:59:01) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000index
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 13:59:01) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000index
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:00:01) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:00:03) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 109ms (View: 47, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 14:00:04) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:00:04) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 14:00:13) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:00:13) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 14:02:05) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:02:05) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 14:02:47) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:02:47) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 14:03:51) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:03:51) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#new (for 127.0.0.1 at 2010-12-23 14:15:32) [GET]
+Rendering template within layouts/user_archives
+Rendering user_archives/new
+Completed in 406ms (View: 391, DB: 0) | 200 OK [http://localhost/user_archives/new]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:15:39) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#edit (for 127.0.0.1 at 2010-12-23 14:15:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/edit
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives/1/edit]
+
+
+Processing UserArchivesController#update (for 127.0.0.1 at 2010-12-23 14:15:56) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0=", "id"=>"1", "user_archive"=>{"name"=>"1", "archive_time"=>"", "usr_updated"=>"", "usr_id"=>"1", "usr_created"=>"2002", "state"=>"1", "email"=>"1"}}
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+  [4;36;1mUserArchive Update (0.0ms)[0m   [0;1mUPDATE "user_archives" SET "updated_at" = '2010-12-23 06:15:56', "email" = '1', "name" = '1', "usr_id" = 1, "state" = '1' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/user_archives/1
+Completed in 203ms (DB: 0) | 302 Found [http://localhost/user_archives/1]
+
+
+Processing UserArchivesController#show (for 127.0.0.1 at 2010-12-23 14:15:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/show
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/user_archives/1]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:16:00) [GET]
+  [4;36;1mUserArchive Load (15.6ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#edit (for 127.0.0.1 at 2010-12-23 14:17:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/edit
+Completed in 62ms (View: 62, DB: 0) | 200 OK [http://localhost/user_archives/1/edit]
+
+
+Processing UserArchivesController#update (for 127.0.0.1 at 2010-12-23 14:17:28) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0=", "id"=>"1", "user_archive"=>{"usr_created(4i)"=>"06", "name"=>"1", "usr_created(5i)"=>"17", "archive_time"=>"", "usr_updated(1i)"=>"2010", "usr_updated(2i)"=>"12", "usr_updated(3i)"=>"23", "usr_updated(4i)"=>"06", "usr_created(1i)"=>"2010", "usr_id"=>"1", "usr_updated(5i)"=>"17", "usr_created(2i)"=>"12", "usr_created(3i)"=>"23", "state"=>"1", "email"=>"1"}}
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+  [4;35;1mUserArchive Update (0.0ms)[0m   [0mUPDATE "user_archives" SET "usr_updated" = '2010-12-23 06:17:00', "updated_at" = '2010-12-23 06:17:28', "usr_created" = '2010-12-23 06:17:00' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/user_archives/1
+Completed in 297ms (DB: 0) | 302 Found [http://localhost/user_archives/1]
+
+
+Processing UserArchivesController#show (for 127.0.0.1 at 2010-12-23 14:17:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives/1]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:17:30) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 141ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#edit (for 127.0.0.1 at 2010-12-23 14:17:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/edit
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives/1/edit]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 14:17:47) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" WHERE ("user_archives"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;35;1mUserArchive Create (0.0ms)[0m   [0mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES('1name', '2010-12-23 07:45:14', 1, '2010-12-23 07:45:14', '2010-12-22 11:13:10', 1, '2010-12-22 11:13:10', '1mail', '1state')[0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 1) [0m
+  [4;35;1mUsr Destroy (0.0ms)[0m   [0mDELETE FROM "usrs" WHERE "id" = 1[0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 15:53:04) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 15:53:04) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 15:53:07) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 15:53:07) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-23 15:53:15) [GET]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/usrs]
+
+
+Processing UsrsController#new (for 127.0.0.1 at 2010-12-23 15:53:18) [GET]
+Rendering template within layouts/usrs
+Rendering usrs/new
+Completed in 250ms (View: 234, DB: 0) | 200 OK [http://localhost/usrs/new]
+
+
+Processing UsrsController#create (for 127.0.0.1 at 2010-12-23 15:53:24) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0=", "usr"=>{"name"=>"1", "state"=>"asdfcdd", "email"=>"111111"}}
+  [4;35;1mUsr Create (15.6ms)[0m   [0mINSERT INTO "usrs" ("name", "created_at", "updated_at", "email", "state") VALUES('1', '2010-12-23 07:53:24', '2010-12-23 07:53:24', '111111', 'asdfcdd')[0m
+Redirected to http://localhost:3000/usrs/3
+Completed in 188ms (DB: 16) | 302 Found [http://localhost/usrs]
+
+
+Processing UsrsController#show (for 127.0.0.1 at 2010-12-23 15:53:24) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" WHERE ("usrs"."id" = 3) [0m
+Rendering template within layouts/usrs
+Rendering usrs/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/usrs/3]
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-23 15:53:27) [GET]
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/usrs]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" WHERE ("usrs"."id" = 2) [0m
+  [4;36;1mUserArchive Create (0.0ms)[0m   [0;1mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES('2name', '2010-12-23 07:57:08', 1, '2010-12-23 07:57:08', '2010-12-22 11:13:24', 2, '2010-12-22 11:13:24', '2mail', '2state')[0m
+  [4;35;1mUsr Destroy (0.0ms)[0m   [0mDELETE FROM "usrs" WHERE "id" = 2[0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 16:04:30) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;36;1mUsr Create (0.0ms)[0m   [0;1mINSERT INTO "usrs" ("name", "created_at", "updated_at", "email", "state") VALUES('abcde', '2010-12-23 08:05:46', '2010-12-23 08:05:46', 'asdfa@ecc.com', 'xxx')[0m
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" [0m
+  [4;36;1mUserArchive Create (0.0ms)[0m   [0;1mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES('abcde', '2010-12-23 08:06:11', 1, '2010-12-23 08:06:11', '2010-12-23 08:05:46', 4, '2010-12-23 08:05:46', 'asdfa@ecc.com', 'xxx')[0m
+  [4;35;1mUsr Destroy (0.0ms)[0m   [0mDELETE FROM "usrs" WHERE "id" = 4[0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 16:06:15) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 16:06:15) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;36;1mUsr Create (0.0ms)[0m   [0;1mINSERT INTO "usrs" ("name", "created_at", "updated_at", "email", "state") VALUES('asdve', '2010-12-23 08:24:27', '2010-12-23 08:24:27', 'xawerdfae', 'adfe')[0m
+  [4;35;1mUsr Update (0.0ms)[0m   [0mUPDATE "usrs" SET "updated_at" = '2010-12-23 08:25:08', "state" = 'asdfawefd' WHERE "id" = 5[0m
+  [4;36;1mUserArchive Create (0.0ms)[0m   [0;1mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES('asdve', '2010-12-23 08:25:26', 1, '2010-12-23 08:25:26', '2010-12-23 08:25:08', 5, '2010-12-23 08:24:27', 'xawerdfae', 'asdfawefd')[0m
+  [4;35;1mUsr Destroy (0.0ms)[0m   [0mDELETE FROM "usrs" WHERE "id" = 5[0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 16:25:39) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 16:25:39) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 16:42:49) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"ffffffffxxxx", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 16:42:49) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 16:43:04) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"aaaaabbbb", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 16:43:05) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 16:46:20) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 16:46:20) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: UserArchives: select * from UserArchives where name='asdve'[0m
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: UserArchive: select * from UserArchive where name='asdve'[0m
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: user_archive: select * from user_archive where name='asdve'[0m
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mselect * from user_archives where name='asdve'[0m
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mselect * from user_archives where name='asdve'[0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 16:56:57) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mTypeError: can't convert nil into String: [0m
+
+ActiveRecord::StatementInvalid (TypeError: can't convert nil into String: ):
+  app/controllers/user_archives_controller.rb:18:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 16:59:39) [GET]
+
+SyntaxError (D:/Ruby/project/second/app/controllers/user_archives_controller.rb:102: syntax error, unexpected $end, expecting kEND):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 16:59:49) [GET]
+
+SyntaxError (D:/Ruby/project/second/app/controllers/user_archives_controller.rb:102: syntax error, unexpected $end, expecting kEND):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 17:00:52) [GET]
+
+SyntaxError (D:/Ruby/project/second/app/controllers/user_archives_controller.rb:22: odd number list for Hash
+    } unless params[:sql].nil?
+            ^
+D:/Ruby/project/second/app/controllers/user_archives_controller.rb:22: syntax error, unexpected kUNLESS_MOD, expecting '}'
+    } unless params[:sql].nil?
+            ^):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 17:01:41) [GET]
+
+SyntaxError (D:/Ruby/project/second/app/controllers/user_archives_controller.rb:22: odd number list for Hash
+    }} unless params[:sql].nil?
+      ^):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:03:10) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 141ms (View: 78, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:03:11) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+  [4;35;1mUsr Load (0.0ms)[0m   [0mTypeError: can't convert nil into String: [0m
+
+ActiveRecord::StatementInvalid (TypeError: can't convert nil into String: ):
+  app/controllers/user_archives_controller.rb:19:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:04:40) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:04:41) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:04:41) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:04:43) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:04:43) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:04:44) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:04:44) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 156ms (View: 156, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:05:10) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"select * from usrs", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mselect * from usrs[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `archiveUsr' for #<Class:0x48d2ae0>):
+  app/controllers/user_archives_controller.rb:20:in `archive'
+  app/controllers/user_archives_controller.rb:19:in `each'
+  app/controllers/user_archives_controller.rb:19:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:05:29) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:05:36) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"select * from usrs", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mselect * from usrs[0m
+  [4;35;1mUserArchive Create (0.0ms)[0m   [0mINSERT INTO "user_archives" ("name", "created_at", "archive_time", "updated_at", "usr_updated", "usr_id", "usr_created", "email", "state") VALUES('1', '2010-12-23 09:05:36', 2, '2010-12-23 09:05:36', '2010-12-23 07:53:24', 3, '2010-12-23 07:53:24', '111111', 'asdfcdd')[0m
+  [4;36;1mUsr Destroy (0.0ms)[0m   [0;1mDELETE FROM "usrs" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/user_archives
+Completed in 203ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:05:36) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:05:41) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:05:41) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" [0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:25:34) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.count):
+  app/controllers/user_archives_controller.rb:28:in `archive'
+  app/controllers/user_archives_controller.rb:26:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:26:32) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:26:34) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+
+NoMethodError (undefined method `pluralize' for #<UserArchivesController:0x47a6de0>):
+  app/controllers/user_archives_controller.rb:29:in `archive'
+  app/controllers/user_archives_controller.rb:27:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:27:26) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:27:27) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+
+NoMethodError (undefined method `pluralize' for ActionView::Helpers::TextHelper:Module):
+  app/controllers/user_archives_controller.rb:29:in `archive'
+  app/controllers/user_archives_controller.rb:27:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:29:21) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:29:22) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+
+TypeError (String can't be coerced into Fixnum):
+  app/controllers/user_archives_controller.rb:29:in `+'
+  app/controllers/user_archives_controller.rb:29:in `archive'
+  app/controllers/user_archives_controller.rb:27:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.1ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:29:53) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:29:54) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:29:55) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:35:05) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+
+NoMethodError (undefined method `include' for #<UserArchivesController:0x4882ab8>):
+  app/controllers/user_archives_controller.rb:27:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:35:21) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:35:22) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+
+TypeError (can't convert Module into String):
+  app/controllers/user_archives_controller.rb:27:in `archive'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (62.5ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:35:57) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 250ms (View: 172, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:35:58) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:35:58) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:39:43) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:39:43) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:40:41) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:40:41) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 125ms (View: 109, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:40:56) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:40:56) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:41:40) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:41:40) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:41:41) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:41:41) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:41:52) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:41:52) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:42:01) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:42:01) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 62, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:42:09) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:42:09) [GET]
+  [4;35;1mUserArchive Load (15.6ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 375ms (View: 312, DB: 16) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:42:20) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:42:20) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:42:21) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:42:21) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:43:57) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 16) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:43:57) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:43:58) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:43:58) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 17:43:59) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 17:43:59) [GET]
+  [4;35;1mUserArchive Load (0.0ms)[0m   [0mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+  [4;35;1mUsr Load (0.0ms)[0m   [0mSELECT * FROM "usrs" [0m
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-23 19:02:44) [GET]
+
+ActionController::RoutingError (No route matches "/usr" with {:method=>:get}):
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  D:/Ruby/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsrsController#index (for 127.0.0.1 at 2010-12-23 19:02:49) [GET]
+  [4;36;1mUsr Load (0.0ms)[0m   [0;1mSELECT * FROM "usrs" [0m
+Rendering template within layouts/usrs
+Rendering usrs/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/usrs]
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: no such column: archive_time: SELECT max(archive_time) AS max_archive_time FROM "usrs" [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: no such column: cretaed_at: SELECT max(cretaed_at) AS max_cretaed_at FROM "usrs" [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("usrs".created_at) AS max_created_at FROM "usrs" [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("usrs".created_at) AS max_created_at FROM "usrs" [0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 19:17:53) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 19:17:53) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 19:17:54) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 19:17:55) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 19:17:55) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 19:17:55) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 19:41:58) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 19:41:59) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 156ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]
+
+
+Processing UserArchivesController#archive (for 127.0.0.1 at 2010-12-23 19:42:10) [POST]
+  Parameters: {"commit"=>"Run", "sql"=>"", "authenticity_token"=>"1Ok4CDLaijgdi5vV5hFMt8E3V7Rn6wu14J+tVqIXiT0="}
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT max("user_archives".archive_time) AS max_archive_time FROM "user_archives" [0m
+Redirected to http://localhost:3000/user_archives
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/user_archives/archive]
+
+
+Processing UserArchivesController#index (for 127.0.0.1 at 2010-12-23 19:42:10) [GET]
+  [4;36;1mUserArchive Load (0.0ms)[0m   [0;1mSELECT * FROM "user_archives" [0m
+Rendering template within layouts/user_archives
+Rendering user_archives/index
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/user_archives]

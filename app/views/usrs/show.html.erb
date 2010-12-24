@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @usr.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @usr.email %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @usr.state %>
+</p>
+
+
+<%= link_to 'Edit', edit_usr_path(@usr) %> |
+<%= link_to 'Back', usrs_path %>
